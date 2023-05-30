@@ -1,0 +1,131 @@
+:root {
+    --page-background-color: linear-gradient(to right, #4da0b0, #d39d38);
+
+    --previous-output-color: rgb(200,200,200);
+    --current-output-color: rgb(255,255,255);
+    --button-background-color: rgba(255,255,255, .60);
+    --button-hover-color:rgba(255,255,255, .9);
+}
+
+
+
+*,
+*::after,
+*::before {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior: smooth;
+  text-decoration: none;
+  list-style: none;
+}
+
+/*Header*/
+
+header {
+    width: 80%;
+    height:100px;
+    position:fixed;
+    top: 5px;
+    left: 10%;
+    right: 10%;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 50px;
+    background: linear-gradient(to left, #0099f7, #f11712);
+}
+
+.left-nav {
+    display:flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 96px;
+    border-radius:50%;
+    transform: translateY(1%) translateX(1%);
+}
+#website-title {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-family: Pacifico, sans-serif;
+    color: #eee;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+} 
+
+/*Body*/
+
+body {
+    padding: 0;
+    margin: 0;
+    background: var(--page-background-color);
+
+}
+
+
+/*Calculator*/
+
+.calculator-grid {
+    border:1px solid black;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    width: 404px;
+    height: 674px;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) 50px repeat(5, 100px);
+    margin: 120px auto;
+    background-color: rgb(200, 200, 200);
+    border-radius: 5px;
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    border: 2px solid var(--button-hover-color);
+    outline: none;
+    background-color: rgba(255,255,255, .60);
+    border-radius: 2px;
+
+}
+
+.calculator-grid > button:hover {
+    background-color: var(--button-hover-color);
+}
+
+.calculator-grid > button.num-lock {
+    background: rgb(5,5,5);
+    color: rgba(255,255,255, .9);
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+.cols-2 {
+    grid-row: span 2;
+}
+
+.output {
+    grid-column: 1 / -1 ;
+    background-color: rgba(0,0,0, .75);
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: var(--previous-output-color);
+    font-size: 1.5rem;
+}
+.output .current-operand {
+    color: var(--current-output-color);
+    font-size: 2rem;
+}
